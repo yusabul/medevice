@@ -1,34 +1,34 @@
 /*Requirements Analysis
-	Create a Java program similar to the fictional emergency watch device from Liar Game manga that is used in hospitals. 
-	The device will either create a new patient account or use an existing one from a text file that has stored patient information.
-	For existing patients, there will be a prompt to enter a 4-character code to unlock their account, which will give them access to the device's main menu, mainMenu().
-	mainMenu() has five features: displayPatientInfo(), enter Readings(), displayCondition(), updatePatientInfo(), and saveInfo().
-	displayPatientInfo() holds the patients personal information, including name, age, DOB, and reason for staying at the hospital. If the patient already exists (has a file) the systolic blood pressure, diastolic blood pressure, heart rate, temperature, and breathing rate will also be held.
-	enterReadings() is where the the systolic blood pressure, diastolic blood pressure, heart rate, temperature, and breathing rate are updated, based on input.
-	displayCondition() take systolic blood pressure, diastolic blood pressure, heart rate, temperature, and breathing and send "signals" determining whether a patient is in stable condition or not in the form of a print statements.
-	Signal A indicates condition is normal and Signal B indicates that condition is abnormal.
-	If the patient's condition is abnormal, the program sends signals determining what is or what are the causes of the condition.
-	The signals are numbered 1-9, two extremes for each variable tested except pulse and breathing, which have a third option. In the case of pulse its when no pulse is detected, and for breathing, it's when no breathing is detected.
-	updatePatientInfo() updates the patient's information, specifically their four character code, first name, last name, age, and reason for staying at the hospital. 
-	Lastly, saveInfo() saves the patient's information, including the inputs from enterReadings() into a text file similar in format to displatPatientInfo(). It determines whether a file should be created or an existing file should be used and the file path based on input and saves the information.
-	Typing 'q' in mainMenu() allows the user to exit the program. 
+Create a Java program similar to the fictional emergency watch device from Liar Game manga that is used in hospitals. 
+The device will either create a new patient account or use an existing one from a text file that has stored patient information.
+For existing patients, there will be a prompt to enter a 4-character code to unlock their account, which will give them access to the device's main menu, mainMenu().
+mainMenu() has five features: displayPatientInfo(), enter Readings(), displayCondition(), updatePatientInfo(), and saveInfo().
+displayPatientInfo() holds the patient's personal information, including name, age, DOB, and reason for staying at the hospital. If the patient already exists (has a file) the systolic blood pressure, diastolic blood pressure, heart rate, temperature, and breathing rate will also be held.
+enterReadings() is where the the systolic blood pressure, diastolic blood pressure, heart rate, temperature, and breathing rate are updated, based on input.
+displayCondition() takes systolic blood pressure, diastolic blood pressure, heart rate, temperature, and breathing and sends "signals" determining whether a patient is in stable condition or not in the form of a print statements.
+Signal A indicates condition is normal and Signal B indicates that condition is abnormal.
+If the patient's condition is abnormal, the program sends signals determining what is/are the causes of the condition.
+The signals are numbered 1-9, with two extremes for each variable tested except pulse and breathing, which have a third option. In the case of pulse, it's when no pulse is detected, and for breathing, it's when no breathing is detected.
+updatePatientInfo() updates the patient's information, specifically their four-character code, first name, last name, age, and reason for staying at the hospital. 
+saveInfo() saves the patient's information, including the inputs from enterReadings() into a text file similar in format to displatPatientInfo(). It determines whether a file should be created or an existing file should be used and the file path based on input and saves the information.
+Lastly, typing 'q' in mainMenu() allows the user to exit the program. 
 	
 Design (Algorithm)
 1. Create and initialize input variables for first name, last name, age, DOB, reason, systolic blood pressure, diastolic blood pressure, heart rate, temperature, and breathing rate.
 2. Add variables for identifying saved files and a code. Set all variables to null, 0, or false depending on their data types.
 3. Print a welcome statement and ask if user has existing data.
 4. If the user has existing data, the user will be asked to input the data's file path and, using Scanner class, assign the values in the data to the variables initialized. Print FileNotFoundException message if file from file path is invalid.  
-5. The user will be prompted to enter a 4 character code created previously before they can access the contents of the file. 
+5. The user will be prompted to enter a 4-character code created previously before they can access the contents of the file. 
 6. If the code matches the code recorded on their file, the user will be directed to mainMenu(); if not, the program will loop until the code is correct.
 7. For new patients, the user will be asked to enter their first name, last name, age, DOB, and reason and input variables corresponding to them will be updated. 
-8. The user will also be asked to create a 4 character code that will be used to access private information within the device and to access their information again once they save and rerun the program.
+8. The user will also be asked to create a 4-character code that will be used to access private information within the device and to access their information again, once they save and rerun the program.
 9. In mainMenu(), the user will be asked to choose from five features of the device:
 10. Inputting 'i' directs the user to displayPatientInfo()
 11. 	Prompt user for code. If correct, continue otherwise, loop until correct.
 12. 	Print "Patient Information"
 13. 	Print "Name: " and input for last name and first name, in that order separated by a comma.
 14. 	Print "Code: " and input for code variable.
-15.		Print statements for age DOB and reason in similar format to code with input from corresponding variables.
+15.		Print statements for age DOB and reason in a similar format to code with input from corresponding variables.
 16. Redirect to mainMenu(). 
 17. Inputting 'r' directs the user to enterReadings()
 18. 	Ask user to input values for systolic and diastolic blood pressure, heart rate, temperature, and breathing rate.
@@ -36,7 +36,7 @@ Design (Algorithm)
 20.	Inputting 'c' directs the user to displayCondition().
 21. 	If the patient's values fall within the accepted ranges of variables used in enterReadings() for a person to be considered in good condition, print "Condition A Normal".
 22. 	Else if the patient's values are not within the accepted ranges, print "Condition B Abnormal" and ask user for code:
-23.			If code is correct, continue. Otherwise, loop until correct.
+23.		If code is correct, continue. Otherwise, loop until correct.
 24. 		If the patient has systolic and diastolic blood pressure above the accepted range, print Signal 1: "High Blood Pressure".
 25. 		If the patient has systolic and diastolic blood pressure below the accepted range, print Signal 2: "Low Blood Pressure".
 26.  		If the patient has a pulse above the accepted range, print Signal 3: "Pulse Too Fast".
@@ -441,4 +441,3 @@ public class medevice {
 		mainMenu(firstName, lastName, gender, age, DOB, reason, sBloodPressure, dBloodPressure, heartRate, temperature, breathingRate, save, code);
 	}
 }
-//Save readings
