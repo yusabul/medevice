@@ -73,7 +73,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-public class medevice {
+public class HealthMonitorSystem {
 	public static void main(String[] args) {
 		Scanner keyboard = new Scanner(System.in);
 		String firstName = null;
